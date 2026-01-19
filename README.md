@@ -1,37 +1,37 @@
-```md
 # 📚 Bookstore Application – Execution Guide
 
 This project consists of two main parts:
 
-- **Backend**: Spring Boot (Java, Maven)  
+- **Backend**: Spring Boot (Java, Maven)
 - **Frontend**: React (Vite, Node.js)
 
 Follow the steps below to run the application locally.
+
 ---
 
-## ⚙️ Prerequisites
+## ✅ Prerequisites
 
-Make sure the following tools are installed on your machine:
+Ensure the following tools are installed on your machine:
 
 - Java **17**
 - Maven **3.8+**
 - Node.js **18+**
 - npm **9+**
 
-Verify installations:
+Verify the installations:
 
 ```bash
 java -version
 mvn -version
 node -v
 npm -v
-````
+```
 
----
+
 
 ## 🔧 Backend Setup & Execution
 
-### 1️⃣ Navigate to backend folder
+### Navigate to backend folder
 
 ```bash
 cd backend
@@ -39,7 +39,7 @@ cd backend
 
 ---
 
-### 2️⃣ Build all backend modules
+### Build all backend modules
 
 ```bash
 mvn clean install
@@ -75,7 +75,7 @@ http://localhost:8080
 
 ---
 
-### 4️⃣ API Documentation (Swagger)
+### API Documentation (Swagger)
 
 The backend exposes API documentation using **Swagger YAML**.
 
@@ -87,9 +87,9 @@ http://localhost:8081/swagger-ui/index.html
 
 ---
 
-## 🌐 Frontend Setup & Execution
+## Frontend Setup & Execution
 
-### 5️⃣ Navigate to frontend folder
+### Navigate to frontend folder
 
 Open a **new terminal** and run:
 
@@ -99,7 +99,7 @@ cd frontend
 
 ---
 
-### 6️⃣ Install frontend dependencies
+### Install frontend dependencies
 
 ```bash
 npm install
@@ -107,7 +107,7 @@ npm install
 
 ---
 
-### 7️⃣ Start the frontend development server
+### Start the frontend development server
 
 ```bash
 npm run dev
@@ -123,16 +123,16 @@ http://localhost:5173
 
 ---
 
-## 🔁 Application Flow
+## Application Flow
 
 * Backend runs on **port 8080**
 * Frontend runs on **port 5173**
 * Frontend communicates with backend APIs
 * Swagger UI can be used to test APIs independently
-
+* There was a basic authentication required to access API, **username : admin**, **password : admin123**
 ---
 
-## 🧪 Common Commands Summary
+## Common Commands Summary
 
 ### Backend
 
@@ -154,13 +154,13 @@ npm run dev
 
 ---
 
-## 🛑 Stopping the Servers
+## Stopping the Servers
 
 Press `CTRL + C` in each terminal running the backend and frontend servers.
 
 ---
 
-## 🚀 Ready to Go
+## Ready to Go
 
 Once both servers are running:
 
