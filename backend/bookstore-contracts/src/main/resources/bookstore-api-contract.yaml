@@ -1,0 +1,182 @@
+openapi: 3.0.3
+
+info:
+  title: Bookstore API
+  description: Contract-first API for the Bookstore backend
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:8080
+
+tags:
+  - name: Books
+    description: Book catalog operations
+  - name: Orders
+    description: Order management operations
+
+paths:
+
+  /books:
+    get:
+      tags:
+        - Books
+      operationId: getBooks
+      summary: Get all books
+      responses:
+        '200':
+          description: List of books
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Book'
+
+    post:
+      tags:
+        - Books
+      operationId: createBook
+      summary: Create a new book
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Book'
+      responses:
+        '201':
+          description: Book created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Book'
+
+  /books/{bookId}:
+    get:
+      tags:
+        - Books
+      operationId: getBookById
+      summary: Get a book by ID
+      parameters:
+        - name: bookId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Book found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Book'
+        '404':
+          description: Book not found
+
+  /orders:
+    post:
+      tags:
+        - Orders
+      operationId: createOrder
+      summary: Create an order
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrderRequest'
+      responses:
+        '201':
+          description: Order created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderResponse'
+
+    get:
+      tags:
+        - Orders
+      operationId: getOrders
+      summary: Get all orders
+      responses:
+        '200':
+          description: List of orders
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OrderResponse'
+
+components:
+
+  schemas:
+
+    Book:
+      type: object
+      required:
+        - id
+        - title
+        - author
+        - price
+        - inStock
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        author:
+          type: string
+        price:
+          type: number
+          format: double
+        inStock:
+          type: boolean
+          example: true
+    OrderRequest:
+      type: object
+      required:
+        - items
+      properties:
+        items:
+          type: array
+          minItems: 1
+          items: 
+            $ref: '#/components/schemas/OrderItem'
+
+    OrderItem:
+      type: object
+      required:
+        - bookId
+        - quantity
+      properties:
+        bookId:
+          type: string
+          example: "book-123"
+        quantity:
+          type: integer
+          minimum: 1
+          example: 2
+
+    OrderResponse:
+      type: object
+      required:
+        - orderId
+        - totalPrice
+        - items
+        - status
+      properties:
+        orderId:
+          type: string
+        status:
+          type: string
+          example: CREATED
+        message:
+          type: string
+        totalPrice:
+          type: number
+          format: double
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrderItem'

@@ -1,0 +1,41 @@
+/* src/pages/BooksPage.css */
+.page-title {
+  margin: 0 0 1rem 0;
+}
+
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.book-card {
+  padding: 1rem;
+}
+
+.book-title {
+  font-weight: 800;
+  margin: 0 0 0.35rem 0;
+}
+
+.book-meta {
+  color: var(--muted);
+  margin: 0 0 0.75rem 0;
+}
+
+.book-actions {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.book-link {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.book-link:hover {
+  color: var(--primaryHover);
+}
