@@ -1,4 +1,4 @@
-# 📚 Bookstore Application – Execution Guide
+# Bookstore Application – Execution Guide
 
 This project consists of two main parts:
 
@@ -9,7 +9,7 @@ Follow the steps below to run the application locally.
 
 ---
 
-## ✅ Prerequisites
+## Prerequisites
 
 Ensure the following tools are installed on your machine:
 
@@ -29,7 +29,7 @@ npm -v
 
 
 
-## 🔧 Backend Setup & Execution
+## Backend Setup & Execution
 
 ### Navigate to backend folder
 
@@ -53,7 +53,7 @@ This command:
 
 ---
 
-### 3️⃣ Start the Spring Boot server
+### Start the Spring Boot server
 
 Navigate to the **bookstore-service** module:
 
